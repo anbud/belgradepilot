@@ -20,7 +20,6 @@ flemay:less-autoprefixer
 iron:router
 accounts-ui
 email
-accounts-facebook
 jparker:gravatar
 check
 aldeed:simple-schema
@@ -37,13 +36,14 @@ stevezhu:fbgraph
 lookback:emails
 random
 ongoworks:pdf
-edgee:slingshot
 simple:rest
-rkstar:ddp-services
 u2622:persistent-session
 marxo:localforage
 http
 reactive-dict
 standard-minifier-css
 standard-minifier-js
+biasport:facebook-sdk
+artwells:accounts-guest
+aldeed:collection2
 accounts-password
