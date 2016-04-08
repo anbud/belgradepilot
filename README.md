@@ -1,2 +1,1 @@
-# belgradepilot
-Techfugee Hackathon project
+# usvoji

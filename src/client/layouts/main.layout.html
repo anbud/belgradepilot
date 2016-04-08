@@ -1,0 +1,94 @@
+<template name="MainLayout">
+    <header class="gradient nav-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs">
+                    <nav>
+                        <div class="nav-top__user">
+                            {{#if currentUser}}
+                            <!--<div class="avatar">
+                                <img src="{{currentUser.profile.picture}}" alt="{{currentUser.profile.name}}">
+                            </div>-->
+                            {{#unless jeUpisan}}
+                                <a href="/upis">Upis</a>
+                            {{/unless}}
+                            <a href="/novi-predlog">+</a>
+                            <a href="/profile">{{currentUser.profile.name}}</a>
+                            <a href="" id="js-logout">Odjavi se</a> {{else}}
+                            <a href="#" class="btn btn_facebook btn_icon" id="js-facebookLogin">{{> entypo "facebook"}} Prijavi se</a> {{/if}}
+                        </div>
+                        <div class="nav-top__logo">
+                            <a href="/"><img src="/assets/logo.png" alt="Zamphyr Inkubator"></a>
+                            <h2 class="nav-top__title">{{routeTitle}}</h2>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="dyno">
+        {{> yield}}
+    </div>
+    <aside>
+        <div class="container">
+            <div class="row center-xs">
+                <div class="col-xs">
+                </div>
+            </div>
+        </div>
+    </aside>
+    <footer>
+        <div class="container latent">
+            <div class="separator separator_footer"></div>
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <div class="cta-bottom">
+                        <!-- Begin MailChimp Signup Form -->
+                        <h2 class="cta-bottom__heading">Pratite novosti</h2>
+                        <p>Budite u toku sa razvojem naše platforme.</p>
+                        <div id="mc_embed_signup">
+                            <form action="//zamphyr.us10.list-manage.com/subscribe/post?u=685a93026c0e91f7683947b68&amp;id=d19bc72fe0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                                <input type="email" placeholder="email@domen.com" name="EMAIL" class="required email cta-email__input" id="mce-EMAIL">
+                                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                                    <input type="text" name="b_685a93026c0e91f7683947b68_d19bc72fe0" tabindex="-1" value="">
+                                </div>
+                                <input type="submit" value="Prijavi me na novosti" name="subscribe" id="mc-embedded-subscribe" class="btn cta-email__send">
+                            </form>
+                        </div>
+                        <!--End mc_embed_signup-->
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <nav class="nav-bottom">
+                        <div class="nav-bottom__list">
+                            <h3 class="list__heading">Zamphyr</h3>
+                            <ul>
+                                <li><a href="https://blog.zamphyr.com">Blog</a></li>
+                                <li><a href="https://github.com/zamphyr">Otvoren kod</a></li>
+                            </ul>
+                        </div>
+                        <div class="nav-bottom__list">
+                            <h3 class="footer-title">Detaljnije</h3>
+                            <ul>
+                                <li><a href="/doprinesi">Postani predavač</a></li>
+                            </ul>
+                        </div>
+                        <div class="nav-bottom__list">
+                            <h3 class="footer-title">Pratite nas</h3>
+                            <ul>
+                                <li><a href="https://facebook.com/zamphyr">Facebook</a></li>
+                                <li><a href="https://twitter.com/zamphyrhq">Twitter</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="row center-xs">
+                <div class="col-xs-12">
+                    <p><small>© 2016 Zamphyr</small></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</template>
