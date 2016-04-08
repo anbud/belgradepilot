@@ -23,11 +23,37 @@ if(Meteor.isClient) {
 			    },
 			    function (response) {
 			    	if (response && !response.error) {
-			    		Meteor.call('postaviPitanje', question, urgency, location, repsonse.id);
+			    		Meteor.call('postaviPitanje', question, urgency, location, response.id);
 			    		//yay, postavio sam pitanje :D
 			    	}
 			    }
 			);
+		} else {
+			//Jos ne znamo sta cemo xD
+		}
+	};
+
+	nadjiKomentare = function(questionId) {
+		var question = Questions.findOne({
+			_id: questionId
+		});
+
+		if(question) {
+			FB.api(
+			    question.facebookId + "/comments",
+			    {
+			    	access_token: 'CAACNuXIGQZA0BAPFa4zDPkSMcy1ivWqcNRDhvEcVwy3wao2LjrbioDzKthNvzLH8MXZBgdS3ieTnaYaXBb9RTMpL3sl4dBSClmJHReu4N3KItL8GUI7IDXlWXrSvrLtBlllKZBXjlpVBHY4mySTcXZAfy9RQjyMvhjLUfaic24ZBFHnf0zSWL25W5dWSam2IZD'
+			    },
+			    function (response) {
+			    	if (response && !response.error) {
+			    		Meteor.call('sacuvajOdgovore', questionId, response.data);
+			    	}
+			    }
+			);
+
+			return question.answers;
+		} else {
+			return [];
 		}
 	}
 }

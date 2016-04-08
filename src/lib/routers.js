@@ -5,6 +5,9 @@ Router.configure({
 
 Router.route('/', {
     name: 'home',
+    waitOn: function() {
+        return [Meteor.subscribe('sources'),Meteor.subscribe('questions')];
+    },
     action: function() {
         this.render('home');
     }

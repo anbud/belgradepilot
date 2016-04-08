@@ -12,11 +12,12 @@ QuestionSchema = new SimpleSchema({
 		type: [Object],
 		optional: true
 	},
-	"answers.$.name": {
-		type: String
+	"answers.$.from": {
+		type: Object
 	},
 	"answers.$.likes": {
-		type: Number
+		type: Number,
+		optional: true
 	},
 	"answers.$.content": {
 		type: String
