@@ -20,40 +20,43 @@
 		    		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 		    	</div>
 		</div>
+		<script>
+function myFunction() {
+    var myWindow = window.open("/ask", "MsgWindow", "width=200,height=100");
+    
+}
+</script>
 		<div class="Answer">
 			<ul >
 				<li style="float:left;"><a id="js-popular" href="#">MOST POPULAR</a></li>
   				<li style="float:left;"><a id="js-recent" href="#">MOST RECENT</a></li>
   				<li style="float:left;"><a id="js-urgent" href="#">MOST URGENT</a></li>
   				<li style="float:left;"><a id="js-unanswered" href="#">UNANSWERED QUESTIONS</a></li>
+  				<li><img src="assets/ask-a-question-button.png" style="float:right;paddintg-top:-45px;width:130px;height:30px;padding-left:10px;" onClick="myFunction()"/></li>
   				<li><input type="text" id="js-search" placeholder=" Search..." style="border-radius: 40px;float:right" /></li>
   			</ul>
   			
 			
 		</div>
-
+		<br />
+		<br />
+		<br />
 		<div class="prikaz">
-		<br />
-		<br />
-		<br />
-
 			{{#each home_pitanja}}
-			<div class="innerPrikaz">"
-				<a href="/question/{{_id}}" style="color: #767676;text-decoration: none;">{{question}}</a> {{#if home_jeOdgovoreno}}<img src="assets/answered-question.png" style="float:right">{{else}}<img src="assets/not-answered-yet.png" style="float:right">{{/if}}<br />
+			<div class="innerPrikaz">
+				<a href="/question/{{_id}}" style="color: #767676;text-decoration: none;padding-left:15p">{{question}}</a> {{#if home_jeOdgovoreno}}<img src="assets/answered-question.png" style="float:right;width:200px;height:30px;padding-right:40px">{{else}}<img src="assets/not-answered-yet.png" style="float:right;width:200px;height:30px;padding-right:40px">{{/if}}<br />
 			</div>
 			{{/each}}
 
-		</div>
-		<form id="js-unesiPitanje">
-			<input type="text" id="js-question">
-			<select id="js-urgency">
-				<option value="1">1</option>
-				<option value="2">2</option>
-			</select>
-			<input type="text" id="js-location">
+		</div>	
 
-			<input type="submit" value="ASK" />
-		</form>
-		
+		<img src="assets/lines.png" class="slika"/>
+		<ul>
+			<li style="float:left;width:500px;height:300px;box-shadow: 5px 5px 10px #888888;">
+			<img src="assets/icon-1.png" style="float:left;padding-top:50px;padding-left:50px;"/>
+			<h3 style="float:left;color=#767676;padding-top:90px;padding-left:-50px;">Do you have a question?</h3>
+			</li>
+			<li style="float:right;background-image:url('assets/text-bg.png');width:500px;height:300px;box-shadow: 5px 5px 10px #888888;"></li>
+		</ul>
 	</div>
 </template>

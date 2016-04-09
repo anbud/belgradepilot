@@ -21,6 +21,14 @@ Template.home.events({
 	}
 });
 
+Template.ask.events({
+	'submit #js-unesiPitanje': function(e, t) {
+		e.preventDefault();
+
+		postaviPitanje($("#js-question").val(), $("#js-urgency").val(), $("#js-location").val());
+	}
+});
+
 Template.question.events({
 	'submit #js-odgovori': function(e, t) {
 		e.preventDefault();

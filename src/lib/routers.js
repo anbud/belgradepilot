@@ -33,6 +33,12 @@ Router.route('/contact', {
         this.render('contact');
     }
 });
+Router.route('/ask', {
+    name: 'ask',
+    action: function() {
+        this.render('ask');
+    }
+});
 
 Router.route('/about', {
     name: 'about',

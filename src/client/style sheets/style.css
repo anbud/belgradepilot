@@ -16,12 +16,19 @@ body{
 	color:#767676;
 	padding-left: 100px;
 }
+.slika
+{
+	padding-left: 230px;
+	padding-top:20px;
+	}
 .innerPrikaz
 {
 	
-	background-image: url('assets/question-bg.png');
-	background-size: 1140px 85px;
-	padding-bottom: 30px;
+	padding-top: 20px;
+	height: 45px;
+	box-shadow: 5px 5px 10px #888888;
+	padding-bottom: 40px;
+	
 }
 .content
 {
