@@ -35,7 +35,7 @@
 		<div class="prikaz">
 		<br />
 			{{#each home_pitanja}}
-				<a href="/question/{{_id}}">{{question}}</a><br />
+				<a href="/question/{{_id}}">{{question}}</a> {{#if home_jeOdgovoreno}}Ima odgovora{{else}}Nema odgovora{{/if}}<br />
 			{{/each}}
 		</div>
 		<form id="js-unesiPitanje">

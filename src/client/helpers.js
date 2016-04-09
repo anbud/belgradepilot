@@ -7,7 +7,7 @@ Template.question.helpers({
 		if(Session.get('fbloaded'))
 			return nadjiKomentare(Questions.findOne()._id);
 		else
-			return [];
+			return this.answers;
 	}
 });
 
@@ -19,5 +19,11 @@ Template.home.helpers({
 			return Questions.find({
 				question: new RegExp(Template.instance().pretraga.get(), "i")
 			});
+	},
+	home_jeOdgovoreno: function() {
+		if(Session.get('fbloaded'))
+			return nadjiKomentare(this._id).length > 0;
+		else
+			return this.answers.length > 0;
 	}
 })
