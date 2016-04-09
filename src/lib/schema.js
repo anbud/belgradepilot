@@ -6,7 +6,8 @@ QuestionSchema = new SimpleSchema({
 		type: String
 	},
 	facebookId: {
-		type: String
+		type: String,
+		optional: true
 	},
 	answers: {
 		type: [Object],
@@ -14,6 +15,12 @@ QuestionSchema = new SimpleSchema({
 	},
 	"answers.$.from": {
 		type: Object
+	},
+	"answers.$.from.id": {
+		type: String
+	},
+	"answers.$.from.name": {
+		type: String
 	},
 	"answers.$.likes": {
 		type: Number,

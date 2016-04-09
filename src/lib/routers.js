@@ -13,9 +13,16 @@ Router.route('/', {
     }
 });
 
-Router.route('/register', {
+Router.route('/question/:id', {
     name: 'register',
+    waitOn: function() {
+        return Meteor.subscribe('question', this.params.id);
+    },
     action: function() {
-        this.render('register');
+        this.render('question', {
+            data: function() {
+                return Questions.findOne();
+            }
+        });
     }
 });

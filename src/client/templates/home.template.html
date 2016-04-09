@@ -2,8 +2,24 @@
 		 <div id="header-wrapper">
 			<div id="header">
 				<div class="logo">
-					<h1><a href="#">hahaha</a></h1>
+					<h1><a href="#">BelgradePilot</a></h1>
 				</div>
 		    </div>
+		</div>
+		<form id="js-unesiPitanje">
+			<input type="text" id="js-question">
+			<select id="js-urgency">
+				<option value="1">1</option>
+				<option value="2">2</option>
+			</select>
+			<input type="text" id="js-location">
+
+			<input type="submit" value="ASK" />
+		</form>
+		<div>
+			<h1>Pitanja</h1>
+			{{#each home_pitanja}}
+				<a href="/question/{{_id}}">{{question}}</a><br />
+			{{/each}}
 		</div>
 </template>

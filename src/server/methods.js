@@ -1,16 +1,26 @@
 Meteor.methods({
-	postaviPitanje: function(question, urgency, location, id) {
+	postaviPitanje: function(question, urgency, location) {
 		check(question, String);
 		check(urgency, String);
 		check(location, String);
-		check(id, String);
 
-		Questions.insert({
+		return Questions.insert({
 			userId: this.userId,
 			question: question,
 			urgency: urgency,
-			location: location,
-			facebookId: id
+			location: location
+		});
+	},
+	postaviId: function(questionId, facebookId) {
+		check(questionId, String);
+		check(facebookId, String);
+
+		Questions.update({
+			_id: questionId
+		}, {
+			$set: {
+				facebookId: facebookId
+			}
 		});
 	},
 	dodajGrupu: function(name, id, location, city) {
@@ -33,7 +43,10 @@ Meteor.methods({
 			return {
 				content: it.message,
 				id: it.id,
-				from: it.from
+				from: {
+					name: it.from.name,
+					id: it.from.id
+				}
 			}
 		});
 
