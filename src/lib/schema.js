@@ -27,6 +27,17 @@ QuestionSchema = new SimpleSchema({
 		type: Number,
 		optional: true
 	},
+	"answers.$.votes": {
+		type: Number,
+		optional: true
+	},
+	"answers.$.voters": {
+		type: [Object],
+		optional: true
+	},
+	"answers.$.voters.$.id": {
+		type: String
+	},
 	"answers.$.content": {
 		type: String
 	},

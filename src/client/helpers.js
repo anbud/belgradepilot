@@ -8,6 +8,16 @@ Template.question.helpers({
 			return nadjiKomentare(Questions.findOne()._id);
 		else
 			return this.answers;
+	},
+	pitanje_canVote: function() {
+		return Questions.findOne({
+			_id: Template.instance().data._id,
+			"answers.id": this.id,
+			"answers.voters.id": Meteor.userId()
+		}) === undefined;
+	},
+	pitanje_votes: function() {
+		return this.votes || 0;
 	}
 });
 

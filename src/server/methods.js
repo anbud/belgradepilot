@@ -84,11 +84,74 @@ Meteor.methods({
 			$push: {
 				answers: {
 					content: content,
+					id: Random.id(12),
 					from: {
 						name: name
 					}
 				}
 			}
 		});
+	},
+	upvoteComment: function(questionId, commentId) {
+		check(questionId, String);
+		check(commentId, String);
+
+		if(!Questions.findOne({
+			_id: questionId,
+			"answers.id": commentId,
+			"answers.voters.id": this.userId
+		})) {
+			var votes = Questions.findOne({
+				_id: questionId,
+				"answers.id": commentId
+			}).answers.filter(it => {
+				return it.id === commentId
+			})[0].votes || 0;
+
+			Questions.update({
+				_id: questionId,
+				"answers.id": commentId
+			}, {
+				$set: {
+					"answers.$.votes": votes+1 
+				},
+				$push: {
+					"answers.$.voters": {
+						id: this.userId
+					}
+				}
+			});
+		}
+	},
+	downvoteComment: function(questionId, commentId) {
+		check(questionId, String);
+		check(commentId, String);
+
+		if(!Questions.findOne({
+			_id: questionId,
+			"answers.id": commentId,
+			"answers.voters.id": this.userId
+		})) {
+			var votes = Questions.findOne({
+				_id: questionId,
+				"answers.id": commentId
+			}).answers.filter(it => {
+				return it.id === commentId
+			})[0].votes || 0;
+
+			Questions.update({
+				_id: questionId,
+				"answers.id": commentId
+			}, {
+				$set: {
+					"answers.$.votes": votes-1 
+				},
+				$push: {
+					"answers.$.voters": {
+						id: this.userId
+					}
+				}
+			});
+		}
 	}
 });

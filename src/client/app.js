@@ -82,3 +82,12 @@ if(Meteor.isClient) {
 			return 0;
 		}
 	}
+
+	nadjiLokaciju = function() {
+		navigator.geolocation.getCurrentPosition(function(position) {
+			Session.set('lat', position.coords.latitude);
+			Session.set('lon', position.coords.longitude);
+		});
+
+		return [Session.get('lat'), Session.get('lon')];
+	}
