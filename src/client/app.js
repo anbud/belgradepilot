@@ -1,4 +1,5 @@
 if(Meteor.isClient) {
+	Session.set('fbloaded', false);
 	window.fbAsyncInit = function() {
 		FB.init({
 			appId: '155827621478813',
@@ -55,5 +56,29 @@ if(Meteor.isClient) {
 			return question.answers;
 		} else {
 			return [];
+		}
+	}
+
+	getLikeCount = function(questionId) {
+		var question = Questions.findOne({
+			_id: questionId
+		});
+
+		if(question) {
+			FB.api(
+			    question.facebookId + "/likes",
+			    {
+			    	access_token: 'CAACNuXIGQZA0BAPFa4zDPkSMcy1ivWqcNRDhvEcVwy3wao2LjrbioDzKthNvzLH8MXZBgdS3ieTnaYaXBb9RTMpL3sl4dBSClmJHReu4N3KItL8GUI7IDXlWXrSvrLtBlllKZBXjlpVBHY4mySTcXZAfy9RQjyMvhjLUfaic24ZBFHnf0zSWL25W5dWSam2IZD'
+			    },
+			    function (response) {
+			    	if (response && !response.error) {
+			    		Meteor.call('updateLikes', questionId, response.data.length);
+			    	}
+			    }
+			);
+
+			return question.likes || 0;
+		} else {
+			return 0;
 		}
 	}

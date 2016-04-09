@@ -39,6 +39,13 @@ QuestionSchema = new SimpleSchema({
 	location: {
 		type: String,
 		optional: true
+	},
+	date: {
+		type: Date
+	},
+	likes: {
+		type: Number,
+		optional: true
 	}
 });
 

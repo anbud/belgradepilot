@@ -8,7 +8,8 @@ Meteor.methods({
 			userId: this.userId,
 			question: question,
 			urgency: urgency,
-			location: location
+			location: location,
+			date: new Date()
 		});
 	},
 	postaviId: function(questionId, facebookId) {
@@ -55,6 +56,18 @@ Meteor.methods({
 		}, {
 			$set: {
 				answers: answers
+			}
+		})
+	},
+	updateLikes: function(questionId, likeCount) {
+		check(questionId, String);
+		check(likeCount, Number);
+
+		Questions.update({
+			_id: questionId
+		}, {
+			$set: {
+				likes: likeCount
 			}
 		})
 	}
