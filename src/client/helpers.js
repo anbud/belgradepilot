@@ -1,3 +1,7 @@
+Template.home.onCreated(function() {
+	this.pretraga = new ReactiveVar("");
+});
+
 Template.question.helpers({
 	pitanje_komentari: function() {
 		if(Session.get('fbloaded'))
@@ -9,6 +13,11 @@ Template.question.helpers({
 
 Template.home.helpers({
 	home_pitanja: function() {
-		return Questions.find();
+		if(Template.instance().pretraga.get() === '')
+			return Questions.find();
+		else
+			return Questions.find({
+				question: new RegExp(Template.instance().pretraga.get(), "i")
+			});
 	}
 })
