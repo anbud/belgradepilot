@@ -29,6 +29,7 @@ callback-hook@1.0.7
 check@1.1.3
 chuangbo:marked@0.3.5_1
 coffeescript@1.0.16
+dburles:google-maps@1.1.5
 ddp@1.2.4
 ddp-client@1.2.4
 ddp-common@1.2.4
@@ -74,6 +75,7 @@ manuelschoebel:ms-seo@0.4.1
 marxo:canonical.css@1.1.1
 marxo:localforage@0.1.2
 matb33:collection-hooks@0.8.1
+mdg:geolocation@1.3.0
 mdg:validation-error@0.5.1
 meteor@1.1.13
 meteor-base@1.0.3

@@ -62,5 +62,11 @@ Template.home.helpers({
 			return (nadjiKomentare(this._id) || []).length > 0;
 		else
 			return (this.answers || []).length > 0;
+	},
+	home_grad: function() {
+		return Session.get('grad');
+	},
+	home_drzava: function() {
+		return Session.get('drzava');
 	}
 })
