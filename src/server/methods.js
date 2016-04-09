@@ -51,6 +51,8 @@ Meteor.methods({
 			}
 		});
 
+		answers = _.union(answers, Questions.findOne(questionId).answers);
+
 		Questions.update({
 			_id: questionId
 		}, {
@@ -70,5 +72,23 @@ Meteor.methods({
 				likes: likeCount
 			}
 		})
+	},
+	dodajOdgovor: function(questionId, content, name) {
+		check(questionId, String);
+		check(content, String);
+		check(name, String);
+
+		Questions.update({
+			_id: questionId
+		}, {
+			$push: {
+				answers: {
+					content: content,
+					from: {
+						name: name
+					}
+				}
+			}
+		});
 	}
 });

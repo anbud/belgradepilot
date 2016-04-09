@@ -16,4 +16,17 @@ Template.home.events({
 	'click #js-urgency': function(e, t) {
 		Session.set('orderBy', 2)
 	},
+	'click #js-unanswered': function(e, t) {
+		Session.set('filter', Session.get('filter') === 1 ? 0 : 1)
+	}
 });
+
+Template.question.events({
+	'submit #js-odgovori': function(e, t) {
+		e.preventDefault();
+
+		Meteor.call('dodajOdgovor', this._id, $("#js-ime").val(), $("#js-odgovor").val(), function(err, data) {});
+
+		$("#js-odgovoriDiv").hide();
+	},
+})

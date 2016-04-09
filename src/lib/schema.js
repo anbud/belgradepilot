@@ -17,7 +17,8 @@ QuestionSchema = new SimpleSchema({
 		type: Object
 	},
 	"answers.$.from.id": {
-		type: String
+		type: String,
+		optional: true
 	},
 	"answers.$.from.name": {
 		type: String
@@ -30,7 +31,8 @@ QuestionSchema = new SimpleSchema({
 		type: String
 	},
 	"answers.$.id": {
-		type: String
+		type: String,
+		optional: true
 	},
 	urgency: {
 		type: String,

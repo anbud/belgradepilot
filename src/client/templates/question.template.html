@@ -7,7 +7,16 @@
 	<br />
 	<ul>
 	{{#each pitanje_komentari}}
-		<li>{{from.name}} - {{content}}</li>
+		<li>{{from.name}} - {{content}}</li><br />
 	{{/each}}
 	</ul>
+	<div id="js-odgovoriDiv">
+		<h3>Answer</h3>
+		<form id="js-odgovori">
+			Name: <input type="text" id="js-ime" /><br />
+			Answer: <textarea id="js-odgovor"></textarea><br />
+			<br />
+			<input type="submit" value="Answer!" />
+		</form>
+	</div>
 </template>

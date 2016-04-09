@@ -14,7 +14,9 @@ Template.question.helpers({
 Template.home.helpers({
 	home_pitanja: function() {
 		var s = Session.get('orderBy');
+		var f = Session.get('filter');
 		var sort;
+		var rez;
 
 		if(s === 0)
 			sort = {
@@ -30,15 +32,20 @@ Template.home.helpers({
 			}
 
 		if(Template.instance().pretraga.get() === '')
-			return Questions.find({}, {
+			rez = Questions.find({}, {
 				sort: sort
 			});
 		else
-			return Questions.find({
+			rez = Questions.find({
 				question: new RegExp(Template.instance().pretraga.get(), "i")
 			}, {
 				sort: sort
 			});
+
+		if(f === 1)
+			return rez.fetch().filter(it => {return (it.answers || []).length === 0});
+
+		return rez;
 	},
 	home_jeOdgovoreno: function() {
 		if(Session.get('fbloaded'))

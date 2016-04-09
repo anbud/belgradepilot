@@ -26,3 +26,17 @@ Router.route('/question/:id', {
         });
     }
 });
+
+Router.route('/contact', {
+    name: 'contact',
+    action: function() {
+        this.render('contact');
+    }
+});
+
+Router.route('/about', {
+    name: 'about',
+    action: function() {
+        this.render('about');
+    }
+});
