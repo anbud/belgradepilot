@@ -11,6 +11,7 @@ if(Meteor.isClient) {
 		Session.set('fbloaded', true);
 	};
 }
+
 	postaviPitanje = function(question, urgency, location) {
 		var loc = location.split(",");
 
@@ -107,5 +108,17 @@ if(Meteor.isClient) {
 
 Tracker.autorun(function() {
 	nadjiLokaciju();
+
+	if(Session.get('grad') !== undefined || Session.get('drzava') !== undefined) {
+		//Meteor.subscribe('questions');
+
+		localforage.setItem('questions-grad', Questions.find({
+			location: Session.get('grad')
+		}).fetch());
+
+		localforage.setItem('questions-drzava', Questions.find({
+			location: Session.get('drzava')
+		}).fetch());
+	}
 })
  
