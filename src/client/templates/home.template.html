@@ -1,10 +1,42 @@
-<template name="home">
+<template name="home" style="padding-left:600px;">
+	<div class="content">
 		 <div id="header-wrapper">
 			<div id="header">
 				<div class="logo">
-					<h1><a href="#">BelgradePilot</a></h1>
+					<a href="#"><div class="class">BelgradeRefugees</div></a>
+				</div>
+				<div style="font:14px;color:##767676">
+					 <ul style="float:right;">
+  						<li><a href="#">HOME</a></li>
+  						<li><a href="#">ABOUT US</a></li>
+  						<li><a href="#">ANSWERED QUESTIONS</a></li>
+  						<li><a href="#">CONTACT US</a></li>
+					</ul> 
 				</div>
 		    </div>
+		    <div class="questions">
+		    	 <h1 class="questions">QUESTIONS</h1>
+		    	</div>
+		    	<div class="questionText">
+		    		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+		    	</div>
+		</div>
+		<div class="Answer">
+			<ul >
+				<li style="float:left;"><a href="#">MOST POPULAR</a></li>
+  				<li style="float:left;"><a href="#">MOST RECENT</a></li>
+  				<li style="float:left;"><a href="#">MOST URGENT</a></li>
+  				<li><input type="text" id="j3s-search" placeholder=" Search..." style="border-radius: 40px;float:right" /></li>
+  			</ul>
+  			
+			
+		</div>
+
+		<div class="prikaz">
+		<br />
+			{{#each home_pitanja}}
+				<a href="/question/{{_id}}">{{question}}</a><br />
+			{{/each}}
 		</div>
 		<form id="js-unesiPitanje">
 			<input type="text" id="js-question">
@@ -16,12 +48,6 @@
 
 			<input type="submit" value="ASK" />
 		</form>
-		<div>
-			<h1>Pitanja</h1>
-			<input type="text" id="js-search" placeholder="Search..." />
-			<br />
-			{{#each home_pitanja}}
-				<a href="/question/{{_id}}">{{question}}</a><br />
-			{{/each}}
-		</div>
+		
+	</div>
 </template>

@@ -1,0 +1,87 @@
+body{
+	background-color: #FFFFFF;
+	font-family: "helvetica";
+}
+
+.class
+{
+
+	padding-top: 30px;
+	padding-left: 50px;
+	color:#5408FF;
+}
+
+.class2
+{
+	color:#767676;
+	padding-left: 100px;
+}
+.content
+{
+	width: 1200px;
+	height: 3000px;
+	padding-left: 60px;
+}
+.questions
+{
+	padding-left: 225px;
+	padding-top: 30px;
+	color:#5408FF;
+}
+.questionText
+{
+	color:#767676;
+	width: 900px;
+	padding-left: 150px;
+}
+.Answer
+{
+	display: inline;
+}
+.search
+{
+	
+	
+	width: 400px;
+	height: 40px;
+	color: #767676px;
+	border: 1px;
+	border-style: inset;
+	border-radius: 40px;
+	display: inline;
+}
+.pointer
+{
+	background-image: url("pictur/search-arrow-right.png");
+}
+ul
+{
+	font-family: "helvetica";
+	font: 14px;
+	color:#767676;
+}
+li {
+	font-family: "helvetica";
+	color:#767676;
+    display: inline;
+    margin: 0;
+    
+    font: 14px;
+} 
+
+li a {
+	font: 14px;
+    display: block;
+    color:#767676;
+    text-align: center;
+    display: inline;
+    padding-left: 20px;
+    text-decoration: none;
+    
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    color: #5408FF;
+    text-decoration: line-through;
+}
