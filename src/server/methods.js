@@ -51,7 +51,14 @@ Meteor.methods({
 			}
 		});
 
-		answers = _.union(answers, Questions.findOne(questionId).answers);
+		var un = function() {
+		    var args = Array.prototype.slice.call(arguments);
+		    var it = args.pop();
+
+		    return _.uniq(_.flatten(args, true), it);
+		}
+
+		answers = un((answers || []), (Questions.findOne(questionId).answers || []), function(item) {  return item.id });
 
 		Questions.update({
 			_id: questionId
@@ -96,11 +103,19 @@ Meteor.methods({
 		check(questionId, String);
 		check(commentId, String);
 
-		if(!Questions.findOne({
+		var niz = (Questions.findOne({
 			_id: questionId,
-			"answers.id": commentId,
-			"answers.voters.id": this.userId
-		})) {
+			"answers.id": commentId
+		}).answers.filter(it => {
+			return it.id === commentId;
+		})) || [];
+
+		if((niz[0].voters || []).filter(a => {
+				if(a.id === this.userId)
+					return true
+
+				return false
+			}).length === 0) {
 			var votes = Questions.findOne({
 				_id: questionId,
 				"answers.id": commentId
@@ -127,11 +142,19 @@ Meteor.methods({
 		check(questionId, String);
 		check(commentId, String);
 
-		if(!Questions.findOne({
+		var niz = (Questions.findOne({
 			_id: questionId,
-			"answers.id": commentId,
-			"answers.voters.id": this.userId
-		})) {
+			"answers.id": commentId
+		}).answers.filter(it => {
+			return it.id === commentId;
+		})) || [];
+
+		if((niz[0].voters || []).filter(a => {
+				if(a.id === this.userId)
+					return true
+
+				return false
+			}).length === 0) {
 			var votes = Questions.findOne({
 				_id: questionId,
 				"answers.id": commentId

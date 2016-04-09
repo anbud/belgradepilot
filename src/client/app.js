@@ -15,11 +15,11 @@ if(Meteor.isClient) {
 		var loc = location.split(",");
 
 		var sourceGrad = Sources.findOne({
-			location: loc[0]
+			location: loc[0].trim()
 		});
 
 		var sourceDrzava = Sources.findOne({
-			location: loc[1]
+			location: loc[1].trim()
 		});
 
 		source = sourceGrad || sourceDrzava;

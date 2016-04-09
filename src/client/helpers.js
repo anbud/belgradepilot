@@ -10,11 +10,20 @@ Template.question.helpers({
 			return this.answers;
 	},
 	pitanje_canVote: function() {
-		return Questions.findOne({
+		var self = this;
+		var niz = Questions.findOne({
 			_id: Template.instance().data._id,
-			"answers.id": this.id,
-			"answers.voters.id": Meteor.userId()
-		}) === undefined;
+			"answers.id": this.id
+		}).answers.filter(it => {
+			return it.id === self.id;
+		});
+
+		return (niz[0].voters || []).filter(a => {
+				if(a.id === Meteor.userId())
+					return true
+
+				return false
+			}).length === 0;
 	},
 	pitanje_votes: function() {
 		return this.votes || 0;
