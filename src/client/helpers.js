@@ -8,6 +8,25 @@ Template.question.helpers({
 			return nadjiKomentare(Questions.findOne()._id);
 		else
 			return this.answers;
+	},
+	pitanje_canVote: function() {
+		var self = this;
+		var niz = Questions.findOne({
+			_id: Template.instance().data._id,
+			"answers.id": this.id
+		}).answers.filter(it => {
+			return it.id === self.id;
+		});
+
+		return (niz[0].voters || []).filter(a => {
+				if(a.id === Meteor.userId())
+					return true
+
+				return false
+			}).length === 0;
+	},
+	pitanje_votes: function() {
+		return this.votes || 0;
 	}
 });
 
@@ -53,4 +72,14 @@ Template.home.helpers({
 		else
 			return (this.answers || []).length > 0;
 	}
-})
+	
+});
+
+Template.ask.helpers({
+	home_grad: function() {
+		return Session.get('grad');
+	},
+	home_drzava: function() {
+		return Session.get('drzava');
+	}
+});

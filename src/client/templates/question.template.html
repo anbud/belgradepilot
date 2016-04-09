@@ -7,7 +7,7 @@
 	<br />
 	<ul>
 	{{#each pitanje_komentari}}
-		<li>{{from.name}} - {{content}}</li><br />
+		<li>{{from.name}} - {{content}} ({{pitanje_votes}}) {{#if pitanje_canVote}}<a href="#" id="js-upvote">+</a><a href="#" id="js-downvote">-</a>{{/if}}</li><br />
 	{{/each}}
 	</ul>
 	<div id="js-odgovoriDiv">

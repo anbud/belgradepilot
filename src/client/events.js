@@ -37,4 +37,10 @@ Template.question.events({
 
 		$("#js-odgovoriDiv").hide();
 	},
+	'click #js-upvote': function(e, t) {
+		Meteor.call('upvoteComment', t.data._id, this.id);
+	},
+	'click #js-downvote': function(e, t) {
+		Meteor.call('downvoteComment', t.data._id, this.id);
+	}
 })

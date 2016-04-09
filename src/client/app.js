@@ -11,10 +11,19 @@ if(Meteor.isClient) {
 		Session.set('fbloaded', true);
 	};
 }
+
 	postaviPitanje = function(question, urgency, location) {
-		var source = Sources.findOne({
-			location: location
+		var loc = location.split(",");
+
+		var sourceGrad = Sources.findOne({
+			location: loc[0].trim()
 		});
+
+		var sourceDrzava = Sources.findOne({
+			location: loc[1].trim()
+		});
+
+		source = sourceGrad || sourceDrzava;
 
 		var id;
 
@@ -82,3 +91,34 @@ if(Meteor.isClient) {
 			return 0;
 		}
 	}
+
+	nadjiLokaciju = function() {
+		var loc =  Geolocation.latLng();
+
+		if(loc !== null)
+		HTTP.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + loc.lat + ',' + loc.lng + '&sensor=true&key=AIzaSyDKX44QCsQpTwuUN5E7M1h2fGEWu4i25lA', function(err, res) {
+			var obj = JSON.parse(res.content).results[0].address_components;
+			var drzava = obj.filter(it => { var ok = false; it.types.forEach(l => { if(l === "country") ok = true }); return ok })[0].long_name;
+			var grad = obj.filter(it => { var ok = false; it.types.forEach(l => { if(l === "locality") ok = true }); return ok })[0].long_name;
+			
+			Session.set('drzava', drzava);
+			Session.set('grad', grad);
+		})
+	}
+
+Tracker.autorun(function() {
+	nadjiLokaciju();
+
+	if(Session.get('grad') !== undefined || Session.get('drzava') !== undefined) {
+		//Meteor.subscribe('questions');
+
+		localforage.setItem('questions-grad', Questions.find({
+			location: Session.get('grad')
+		}).fetch());
+
+		localforage.setItem('questions-drzava', Questions.find({
+			location: Session.get('drzava')
+		}).fetch());
+	}
+})
+ 
