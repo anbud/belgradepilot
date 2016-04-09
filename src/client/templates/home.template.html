@@ -9,7 +9,6 @@
 					 <ul style="float:right;">
   						<li><a href="#">HOME</a></li>
   						<li><a href="#">ABOUT US</a></li>
-  						<li><a href="#">ANSWERED QUESTIONS</a></li>
   						<li><a href="#">CONTACT US</a></li>
 					</ul> 
 				</div>
@@ -26,6 +25,7 @@
 				<li style="float:left;"><a id="js-popular" href="#">MOST POPULAR</a></li>
   				<li style="float:left;"><a id="js-recent" href="#">MOST RECENT</a></li>
   				<li style="float:left;"><a id="js-urgent" href="#">MOST URGENT</a></li>
+  				<li style="float:left;"><a id="js-urgent" href="#">UNANSWERED QUESTIONS</a></li>
   				<li><input type="text" id="j3s-search" placeholder=" Search..." style="border-radius: 40px;float:right" /></li>
   			</ul>
   			
@@ -34,9 +34,15 @@
 
 		<div class="prikaz">
 		<br />
+		<br />
+		<br />
+
 			{{#each home_pitanja}}
-				<a href="/question/{{_id}}">{{question}}</a> {{#if home_jeOdgovoreno}}Ima odgovora{{else}}Nema odgovora{{/if}}<br />
+			<div class="innerPrikaz">"
+				<a href="/question/{{_id}}" style="color: #767676;text-decoration: none;">{{question}}</a> {{#if home_jeOdgovoreno}}<img src="assets/answered-question.png" style="float:right">{{else}}<img src="assets/not-answered-yet.png" style="float:right">{{/if}}<br />
+			</div>
 			{{/each}}
+
 		</div>
 		<form id="js-unesiPitanje">
 			<input type="text" id="js-question">

@@ -16,6 +16,13 @@ body{
 	color:#767676;
 	padding-left: 100px;
 }
+.innerPrikaz
+{
+	
+	background-image: url('assets/question-bg.png');
+	background-size: 1140px 85px;
+	padding-bottom: 30px;
+}
 .content
 {
 	width: 1200px;
