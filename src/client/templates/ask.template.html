@@ -1,17 +1,18 @@
 <template name="ask">
 	<div class="container">
 		 <div class="col-sm-12">
-            <h1>Write your problem and we will fined answer for you</h1>
+            <h3 style="color:#05408f;">Write your problem and we will fined answer for you</h3>
         </div>
 	<form id="js-unesiPitanje">
-			<input type="text" id="js-question">
+			<input type="text" id="js-question" placeholder="Write about your problem..." style="width:300px;"> <br /><br />
 			<select id="js-urgency">
+				<option value="">Choose urgency</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
-			</select>
-			<input type="text" id="js-location" value="{{home_grad}}, {{home_drzava}}">
-
-			<input type="submit" value="ASK" />
+			</select><br/><br />
+			<input type="text" id="js-location" value="{{home_grad}}, {{home_drzava}}" style="width:200px;">
+			<br/><br />
+			<input type="submit" value="Ask a question" class="button" style="width:300px;height:50px"/>
 		</form>
 		<div id="js-poruka"></div>
 	</div>
