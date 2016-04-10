@@ -45,4 +45,20 @@ Template.question.events({
 	'click #js-downvote': function(e, t) {
 		Meteor.call('downvoteComment', t.data._id, this.id);
 	}
+});
+
+Template.contact.events({
+	'submit #js-contact': function(e, t) {
+		e.preventDefault();
+
+		if($("#js-email").val() !== '' && $("#js-name").val() !== '' && $("#js-subject").val() !== '' && $("#js-text").val() !== '') {
+			$("#js-poruka").html("Sending email...");
+
+			Meteor.call('sendEmail', $("#js-email").val(), 'belgradepilot@gmail.com', $("#js-subject").val(), $("#js-text").val(), function(err, data) {
+				$("#js-poruka").html("Mail sent successfully!");
+			})
+		} else {
+			$("#js-poruka").html("All fields must filled!");
+		}
+	}
 })
