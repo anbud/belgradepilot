@@ -1,0 +1,15 @@
+.footer {
+	margin-top: $mini-space;
+	margin-bottom: $mini-space;
+
+	h1 {
+		color: $grey-darker;
+	}
+
+	a {
+		border-bottom: 1px solid $line-color;
+		color: $grey;
+		padding: 10px 10px 10px 0;
+		display: block;
+	}
+}

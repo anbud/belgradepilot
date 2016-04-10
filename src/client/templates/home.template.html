@@ -1,147 +1,143 @@
-<template name="home" style="padding-left:600px;">
-	<div class="content">
-		 <div id="header-wrapper">
-			<div id="header">
-				<div style="font:14px;color:##767676">
-					 <ul>
-  				
-  						<li style="flaot:left;"><img src="assets/Inter-Ask.png" style="width:200px;height:70px;" /></li>
-					 	<li style="float:right;padding-top:30px;"><a href="/">HOME</a></li>
-  						<li style="float:right;padding-top:30px;"><a href="/about">ABOUT US</a></li>
-  						<li style="float:right;padding-top:30px;"><a href="/contact">CONTACT US</a></li>
-					</ul> 
-				</div>
-		    </div>
-		    <div class="questions">
-		    	 <h1 class="questions">QUESTIONS</h1>
-		    	</div>
-		    	<div class="questionText">
-		    		Migration to a new place is never simple, no matter how well it may be planned out. This is a safe place for refugees and asylum seekers to voice their questions and get reliable answers based on their location. 
-					Feel free to ask and answer, as well as give a thumbs up to helpful answers.
-		    	</div>
-		</div>
-		<script type="text/javascript">
-		function myFunction() {
-   		 var myWindow = window.open("/ask", "MsgWindow", "width=200,height=100");
-    
-		}
-		function myFun() {
-   				 document.getElementById("demo").innerHTML = "<p>We want to thank the Techfugee community and the Startit Center for gathering us as a team and enabling us to create this app</p>";
-				}
-		function myFun1() {
-   				 document.getElementById("demo").innerHTML = "
-				<p>We never thought that other developers would show interest in the open data we collect during the very process of app development. This positive surprise should  indicate both the importance of opening data, as well as the potential of apps feeding into each other.</p>";
-				}
-		</script>
-		<div id="top" class="Answer">
-			<ul >
-				<li style="float:left;"><a id="js-popular" href="#">MOST POPULAR</a></li>
-  				<li style="float:left;"><a id="js-recent" href="#">MOST RECENT</a></li>
-  				<li style="float:left;"><a id="js-urgent" href="#">MOST URGENT</a></li>
-  				<li style="float:left;"><a id="js-unanswered" href="#">UNANSWERED QUESTIONS</a></li>
-  				<li><img src="assets/ask-a-question-button.png" style="float:right;paddintg-top:-45px;width:130px;height:30px;padding-left:10px;" onClick="myFunction()"/></li>
-  				<li><input type="text" id="js-search" placeholder=" Search..." style="border-radius: 40px;float:right" /></li>
-  			</ul>		
-		</div>
-		<br />
-		<br />
-		<br />
-		<div class="prikaz">
-			{{#each home_pitanja}}
-			<div class="innerPrikaz">
-				<a href="/question/{{_id}}" style="color: #767676;text-decoration: none;padding-left:15p">{{question}}</a> {{#if home_jeOdgovoreno}}<img src="assets/answered-question.png" style="float:right;width:200px;height:30px;padding-right:40px">{{else}}<img src="assets/not-answered-yet.png" style="float:right;width:200px;height:30px;padding-right:40px">{{/if}}<br />
-			</div>
-			{{/each}}
-			</div>
+<template name="home">
+  <script>
+    function myFunction() {
+   
+       var myWindow = window.open("/ask", "MsgWindow", "width=100","height=50","top=1000", "left=1000");
+    // Puts focus on the newWindow
+    if (window.focus) {
+        myWindow.focus();
+    }
+    }
+    </script>
+	  <div class="container">
+      <div class="row">
+        <div class="col-sm-4 logo">
+          <a href="/"><img src="assets/images/Inter-Ask.png" class="img-responsive"></a>
+        </div>
 
+        <div class="col-sm-8 right nav">
+          <a href="/" class="selected">HOME</a>
+          <a href="/about">ABOUT US</a>
+          <a href="/contact">CONTACT US</a>s
+        </div>
+      </div>
 
-		<img src="assets/lines.png" class="slika"/>
-		<ul>
-			<li style="float:left;width:500px;height:370px;box-shadow: 5px 5px 10px #888888;">
-			<img src="assets/icon-1.png" style="float:left;padding-top:50px;padding-left:90px;"/>
-			<h3 style="float:left;color=#767676;padding-top:100px;padding-left:-90px;">Do you have a question?</h3>
-			<p style="float:left;width:400px;padding-left:90px;">
-				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-			</p>
-			<a href="/ask"><img src="assets/ask-a-question-button-2.png"  style="float:left;paddintg-top:-15px;padding-left:90px;" /></a>
-			</li>
-			<li style="float:right;width:500px;height:370px;box-shadow: 5px 5px 10px #888888;">
+      <div class="content center">
+        <div class="row">
+          <div class="col-sm-12">
+            <h1>QUESTIONS</h1>
+            <div class="line center"></div>
+            <p>LMigration to a new place is never simple, no matter how well it may be planned out. This is a safe place for refugees and asylum seekers to voice their questions and get reliable answers based on their location. 
+					Feel free to ask and answer, as well as give a thumbs up to helpful answers.</p>
+          </div>
+        </div>
+      </div>
 
-			<img src="assets/icon-2.png" style="float:left;padding-top:50px;padding-left:90px;"/>
-			<h3 style="float:left;color=#767676;padding-top:100px;padding-left:-90px;">Do you have a answer?</h3>
-			<p style="float:left;width:400px;padding-left:90px;">
-				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-			</p>
-			<a href="#top"><img src="assets/answer-on-question.png"  style="float:left;paddintg-top:-15px;padding-left:90px;" /></a>
-			</li>
-		</ul>
-		<br/>
-		<br/>
+      <div id="top" class="row filter">
+          <div class="col-sm-6 nav2">
+            <a id="js-popular" href="#">MOST POPULAR</a>
+            <a id="js-recent" href="#">MOST RECENT</a>
+            <a id="js-urgent" href="#">MOST URGENT</a>
+            <a id="js-unanswered" href="#">UNANSWERED QUESTIONS</a>
+          </div>
 
-		</div>
-		<div class="foo blue">
+          <div class="col-sm-6 right">
+            <div class="col-sm-5 col-sm-offset-2">
+              <input class="search" id="js-search" placeholder=" Search..."/>
+            </div>
 
-			<center><h3>Download our open data</h3></center>
-			<center><p style="width:500px;">
-				We believe data deserves to be open. If you think the data this app collects might be useful for you or your organization to analyze and address issues refugees are faced with in Europe, please feel free to download and use it.
-			</p></center>
-			<center><a href="/apidoc"><img src="assets/download-now-button.png" style="width:200px;height:50px"/></a></center>
+            <div class="col-sm-5">
+              <div class="ask" onClick="myFunction()">Ask a question</div>
+            </div>
+          </div>
+      </div>
+      <div class="table">
+      	{{#each home_pitanja}}
+        <div class="row">
+            <div class="col-sm-8">
+              <a href="/question/{{_id}}">{{question}}</a>
+            </div>
+            <div class="col-sm-4">
+              {{#if home_jeOdgovoreno}}
+              <div class="answered">ANSWERED QUESTION</div>
+              {{else}}
+              <div class="not-answered">NOT ANSWERED YET</div>
+              {{/if}}
+            </div>
+          </div>
+          {{/each}}
+      </div>
+      
 
-		</div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="box">
+            <img src="assets/icon-1.png" style="displey:block;"/>
+            <br/>
+            <h1>Do you have question?</h1>
+            <p>Whether you’re a refugee in transit, an asylum seeker, or a recognized refugee trying to integrate into your new society, this app is meant for you. It will connect you with online communities in your location, who are willing and able to answer your questions.</p>
+            <div class="button" style="border-radius:2px;"><a href="/ask" style="text-decoration: none;color:#FFFFFF;">Ask a question</a></div>
+          </div>
+        </div>
 
-		<div class="footer">
-			<ul style="padding-left:150px;">
-			<li style="float:left;width:250px;height:200px;">
-			<h3 style="float:left;color=#767676;">Our time</h3>
-			<p style="float:left;width:200px;">
-				
-				<b>Geek Squad</b>
-				<br />				
-  				Andrej Budincevic
-  				<br />
-  				Djordje Jankovi
-  				<br />
-  				<b>Big BOSS</b>
-  				<br />
-				Katarina Kosmina
-				<br />
-				<b>Mighty Designer</b>
-				<br/>
-				Marko Ilic
-			</p>
-			</li>
-			<li style="float:left;width:250px;height:200px">
-			<h3 style="float:left;color=#767676;">Support</h3>
-			<p style="float:left;width:200px;">
-				<script>
-				
-				</script>
-				<b onClick="myFun();">Techfugees</b>
-				<br>
-				<b onClick="myFun1();">Our community</b>
-				<div id="demo">
-				</div>
-			
-			</p>
-			</li>
-			<li style="float:left;width:250px;height:200px">
-			<h3 style="float:left;color=#767676;">Connect</h3>
-			<p style="float:left;width:200px;">
-				<a href="https://www.facebook.com/techfugeespilot/?fref=ts">Facebook</a>
-				<br/>
-				<a href="/email">Email</a>
-			</p>
-			</li>
-			
-			<li style="float:left;width:250px;height:200px">
-			<h3 style="float:left;color=#767676;">Communities 4 Refugees</h3>
-			<p style="float:left;width:200px;">
-				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-			</p>
-			</li>
-			
-			
-			
-		</ul>
-		</div>
+        <div class="col-sm-6">
+          <div class="box">
+            <img src="assets/icon-2.png" style="displey:block;"/>
+            <br/>
+            <h1>Do you have answer?</h1>
+            <p>It’s important for refugees in transit or those trying to integrate into a new society to get access to relevant information. Based on your location, you may be the best person to help them out. Answer questions or evaluate already provided answers.</p>
+            <div class="button" style="border-radius:2px;"><a href="#top" style="text-decoration: none;color:#FFFFFF;">Share your answers</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="download-box">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <h1>Download our open data </h1>
+            <p>We believe data deserves to be open. If you think the data this app collects might be useful for you or your organization to analyze and address issues refugees are faced with in Europe, please feel free to download and use it.</p>
+            <div class="button"><a href="/apidoc" style="text-decoration: none;color:inherit;">DOWNLOAD NOW</a></div>
+          </div>
+        </div>
+      </div>  
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-3 col-xs-6">
+            <h1>Questions</h1>
+            <b>Geek Squad</b>
+            <p>Andrej Budincevic</p>
+            <p>Djordje Jankovic</p>
+            <b>Big BOSS</b>
+            <p>Katarina Kosmina</p>
+            <b>Mighty Designer</b>
+            <p>Marko Ilic</p>
+          </div>
+
+          <div class="col-sm-3 col-xs-6">
+            <h1>Support</h1>
+            <p>Techfugees</p>
+            <p>Our community</p>
+            
+          </div>
+
+          <div class="col-sm-3 col-xs-6">
+            <h1>Connect</h1>
+            <a href="https://www.facebook.com/techfugeespilot/?fref=ts">Facebook</a>
+            <a href="/email">Email</a>
+          </div>
+
+          <div class="col-sm-3 col-xs-6">
+            <h1>Communities 4 Refugees</h1>
+            <a href="">What is difference in</a>
+            <a href="">What is difference in</a>
+            <a href="">What is difference in</a>
+          </div>
+        </div>
+      </div>
+    </div>
 </template>

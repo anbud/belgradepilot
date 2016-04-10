@@ -1,0 +1,43 @@
+.nav {
+  margin-top: $mini-space;
+  color: $nav-color;
+
+  a {
+    margin-right: 20px;
+    color: $nav-color;
+
+    &:hover, &:focus {
+      text-decoration: line-through;
+      color: $darker-blue;
+    }
+  }
+
+  .selected {
+    text-decoration: line-through;
+    color: $darker-blue;
+  }
+}
+
+.nav2 {
+  margin-top: 15px;
+  color: $nav-color;
+
+  a {
+    margin-right: 20px;
+    color: $nav-color;
+
+    &:hover, &:focus {
+      text-decoration: line-through;
+      color: $darker-blue;
+    }
+  }
+
+  .selected {
+    text-decoration: line-through;
+    color: $darker-blue;
+  }
+}
+
+.logo {
+  margin-top: $mini-space;
+}

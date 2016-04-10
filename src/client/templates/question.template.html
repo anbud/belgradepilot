@@ -1,21 +1,5 @@
 <template name="question">
-	<div class="content">
-		 <div id="header-wrapper">
-			<div id="header">
-				<div class="logo">
-				
-				</div>
-				<div style="font:14px;color:##767676">
-					 <ul>
-  				
-  						<li style="flaot:left;"><img src="assets/Inter-Ask.png" style="width:200px;height:70px;" /></li>
-					 	<li style="float:right;padding-top:30px;"><a href="/">HOME</a></li>
-  						<li style="float:right;padding-top:30px;"><a href="/about">ABOUT US</a></li>
-  						<li style="float:right;padding-top:30px;"><a href="/contact">CONTACT US</a></li>
-					</ul> 
-				</div>
-		    </div>
-		</div>
+	
 	{{question}}
 	<br />
 	{{urgency}}
@@ -30,66 +14,13 @@
 	<div id="js-odgovoriDiv">
 		<h3>Answer</h3>
 		<form id="js-odgovori">
-			Name: <input type="text" id="js-ime" /><br />
+			Name: <input type="text" id="js-ime" />
+			<br />
+			<br>
 			Answer: <textarea id="js-odgovor"></textarea><br />
 			<br />
-			<input type="submit" value="Answer!" />
+			<input type="submit" value="Answer!" class="button"/>
 		</form>
 	</div>
-</div>
-	<div class="footer">
-			<ul style="padding-left:150px;">
-			<li style="float:left;width:250px;height:200px;">
-			<h3 style="float:left;color=#767676;">Our time</h3>
-			<p style="float:left;width:200px;">
-				
-				<b>Geek Squad</b>
-				<br />				
-  				Andrej Budincevic
-  				<br />
-  				Djordje Jankovi
-  				<br />
-  				<b>Big BOSS</b>
-  				<br />
-				Katarina Kosmina
-				<br />
-				<b>Mighty Designer</b>
-				<br/>
-				Marko Ilic
-			</p>
-			</li>
-			<li style="float:left;width:250px;height:200px">
-			<h3 style="float:left;color=#767676;">Support</h3>
-			<p style="float:left;width:200px;">
-				<script>
-				
-				</script>
-				<b onClick="myFun();">Techfugees</b>
-				<br>
-				<b onClick="myFun1();">Our community</b>
-				<div id="demo">
-				</div>
-			
-			</p>
-			</li>
-			<li style="float:left;width:250px;height:200px">
-			<h3 style="float:left;color=#767676;">Connect</h3>
-			<p style="float:left;width:200px;">
-				<a href="https://www.facebook.com/techfugeespilot/?fref=ts">Facebook</a>
-				<br/>
-				<a href="/email">Email</a>
-			</p>
-			</li>
-			
-			<li style="float:left;width:250px;height:200px">
-			<h3 style="float:left;color=#767676;">Communities 4 Refugees</h3>
-			<p style="float:left;width:200px;">
-				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-			</p>
-			</li>
-			
-			
-			
-		</ul>
-		</div>
+
 </template>
