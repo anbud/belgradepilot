@@ -2,6 +2,54 @@ Template.home.onCreated(function() {
 	this.pretraga = new ReactiveVar("");
 });
 
+Template.home.onRendered(function() {
+	var loc = Geolocation.latLng();
+	var locations = [
+      ['Welcome Refugees - Techfugees Pilot',44.806859, 20.455378],
+['Refugees Aid Barcelona',41.385064, 2.173403],
+['Refugees Welcome - Greece',33.951935, -83.357567],
+['Refugees, welcome to Stuttgart',48.775846, 9.182932],
+['Deaf Refugees Welcome - Hamburg',53.551085, 9.993682],
+['Dear refugees: Welcome to Croatia',45.815011, 15.981919],
+['Refugees, Welcome to Slovenia',46.056947, 14.505751],
+['Refugee Help / Czech Volunteers',50.075538, 14.4378],
+['Refugees, welcome in Slovakia',48.148596, 17.107748],
+['Refugees Welcome to Trieste',45.649526, 13.776818],
+['Refugees Welcome to Portugal',38.722252, -9.139337],
+['Austrian Network for Refugees',48.208174, 16.373819],
+['Jobs for refugees in the Netherlands',52.370216, 4.895168],
+['Refugees Welcome to Sweden',59.329323, 18.068581],
+['Syrian refugees welcome in Bosnia & Herzegovina',43.856259, 18.413076],
+['Refugee Aid in Hungary',47.497912, 19.040235],
+['Community support for refugees in Belgium',50.850340, 4.35171],
+['Refugees Welcome - UK',51.507351, -0.127758]
+    ];
+
+    var map = new google.maps.Map(document.getElementById('js-map'), {
+      zoom: 10,
+      center: new google.maps.LatLng(loc.lat, loc.lng),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+});
+
 Template.question.helpers({
 	pitanje_komentari: function() {
 		if(Session.get('fbloaded'))
