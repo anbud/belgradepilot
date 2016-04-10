@@ -21,6 +21,11 @@ body{
 	padding-left: 230px;
 	padding-top:20px;
 	}
+.footer
+{
+	width: 1300px;
+	height: 500px;
+}	
 .innerPrikaz
 {
 	
@@ -33,7 +38,7 @@ body{
 .content
 {
 	width: 1200px;
-	height: 2150px;
+	height: 2050px;
 	padding-left: 60px;
 }
 .questions
@@ -109,3 +114,20 @@ li a:hover {
     text-decoration: line-through;
 }
 
+#pop: {
+	height: 280px;
+	width: 470px;
+	position: fixed;
+	bottom: 50%;
+	right:50%;
+	border: 2px solid;
+	padding:10px;
+	background:#FFFFFF;
+	border-radius: 9px;
+}
+#close
+{
+	right: 5;
+	top:5;
+	float: right;
+}
