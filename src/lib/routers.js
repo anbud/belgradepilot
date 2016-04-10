@@ -35,6 +35,9 @@ Router.route('/contact', {
 });
 Router.route('/ask', {
     name: 'ask',
+    waitOn: function() {
+        return [Meteor.subscribe('sources'),Meteor.subscribe('questions')];
+    },
     action: function() {
         this.render('ask');
     }

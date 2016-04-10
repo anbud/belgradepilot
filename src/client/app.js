@@ -11,6 +11,9 @@ if(Meteor.isClient) {
 		Session.set('fbloaded', true);
 	};
 }
+	winClose = function () {
+	    window.close();
+	}
 
 	postaviPitanje = function(question, urgency, location) {
 		var loc = location.split(",");
@@ -38,6 +41,8 @@ if(Meteor.isClient) {
 			    function (response) {
 			    	if (response && !response.error) {
 			    		Meteor.call('postaviId', data, response.id); //latency compensation
+
+			    		winClose();
 			    	}
 			    }
 			);
