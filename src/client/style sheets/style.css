@@ -33,7 +33,7 @@ body{
 .content
 {
 	width: 1200px;
-	height: 3000px;
+	height: 2150px;
 	padding-left: 60px;
 }
 .questions
@@ -58,15 +58,24 @@ body{
 	
 	width: 400px;
 	height: 40px;
-	color: #767676px;
+	color: #767676;
 	border: 1px;
 	border-style: inset;
 	border-radius: 40px;
 	display: inline;
 }
-.pointer
-{
-	background-image: url("pictur/search-arrow-right.png");
+.foo {
+  padding-left: -1000px;
+  width: 1330px;
+  height: 300px;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, .2);
+}
+
+.blue {
+  background: #5408FF;
+  color: #FFFFFf;
+	
 }
 ul
 {
@@ -99,3 +108,4 @@ li a:hover {
     color: #5408FF;
     text-decoration: line-through;
 }
+
