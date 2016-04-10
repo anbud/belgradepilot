@@ -106,12 +106,12 @@ if(Meteor.isClient) {
 		})
 	}
 
+
+
 Tracker.autorun(function() {
 	nadjiLokaciju();
 
-	if(Session.get('grad') !== undefined || Session.get('drzava') !== undefined) {
-		//Meteor.subscribe('questions');
-
+	/*if(Session.get('grad') !== undefined || Session.get('drzava') !== undefined) {
 		localforage.setItem('questions-grad', Questions.find({
 			location: Session.get('grad')
 		}).fetch());
@@ -119,6 +119,6 @@ Tracker.autorun(function() {
 		localforage.setItem('questions-drzava', Questions.find({
 			location: Session.get('drzava')
 		}).fetch());
-	}
+	}*/
 })
  

@@ -14,7 +14,7 @@ Router.route('/', {
 });
 
 Router.route('/question/:id', {
-    name: 'register',
+    name: 'question',
     waitOn: function() {
         return Meteor.subscribe('question', this.params.id);
     },
