@@ -12,6 +12,7 @@
         </div>
       </div>
       <div class="content center">
+      	<div class="table">
         <div class="row">
           <div class="col-sm-12">
             <h1>Send Message</h1>
@@ -20,17 +21,21 @@
         </div>
         </div>
 	<form id="js-contact">
-		Name: <input type="text" id="js-name" />&nbsp;
-		Email: <input type="text" id="js-email" />
+		<input type="text" id="js-name" placeholder="Name" style="width:295px;" />&nbsp;
+		<input type="text" id="js-email"  placeholder="Email" style="width:295px;"/>
 		<br/>
-		Subject: <input type="text" id="js-subject" />
 		<br/>
-		Text: <textarea id="js-text"></textarea>
-
+		<input type="text" id="js-subject" placeholder="Subject: " style="width:600px;"/>
+		<br/>
+		<br/>
+		<textarea id="js-text" placeholder="Text" style="width:600px;height:300"></textarea>
+		<br/>
+		<br/>
 		<input type="submit" value="Send!" class="button" style="width:300px;height:50px"/>
 	</form>
 	<div id="js-poruka">
 	</div>
+</div>
 </div>
  <div class="row">
         <div class="col-sm-6">
