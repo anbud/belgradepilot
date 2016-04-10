@@ -1,0 +1,1 @@
+process.env.MAIL_URL = 'smtp://30ff9c729d13cb8598818a78e874ef31:7106d13df0efd60d3bc770062b795aab@in-v3.mailjet.com:25';
