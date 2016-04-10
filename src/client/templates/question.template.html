@@ -1,16 +1,36 @@
 <template name="question">
+	<div class="container">
+      <div class="row">
+        <div class="col-sm-4 logo">
+          <a href="/"><img src="assets/images/Inter-Ask.png" class="img-responsive"></a>
+        </div>
+
+        <div class="col-sm-8 right nav">
+          <a href="/">HOME</a>
+          <a href="/about">ABOUT US</a>
+          <a href="/contact">CONTACT US</a>
+        </div>
+      </div>
+       
+     <div class="table">
+	<h1>{{question}}</h1>
 	
-	{{question}}
-	<br />
 	{{urgency}}
-	<br />
+	<div class="col-sm-4">
+              {{#if pitanje_isUrgent}}
+              <div class="not-answered">Urgent</div>
+              {{else}}
+              <div class="answered">Normal</div>
+              {{/if}}
+            </div>
 	{{location}}
-	<br />
-	<ul>
+	</div>
+	<div class="table">
 	{{#each pitanje_komentari}}
 		<li>{{from.name}} - {{content}} ({{pitanje_votes}}) {{#if pitanje_canVote}}<a href="#" id="js-upvote">+</a><a href="#" id="js-downvote">-</a>{{/if}}</li><br />
 	{{/each}}
-	</ul>
+	
+	</div>
 	<div id="js-odgovoriDiv">
 		<h3>Answer</h3>
 		<form id="js-odgovori">
@@ -22,5 +42,52 @@
 			<div class="button"><input type="submit" value="Answer!" /></div>
 		</form>
 	</div>
+</div>
+ <div class="download-box">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <h1>Download our open data </h1>
+            <p>We believe data deserves to be open. If you think the data this app collects might be useful for you or your organization to analyze and address issues refugees are faced with in Europe, please feel free to download and use it.</p>
+            <div class="button"><a href="/apidoc" style="text-decoration: none;color:inherit;">DOWNLOAD NOW</a></div>
+          </div>
+        </div>
+      </div>  
+    </div>
+ <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-3 col-xs-6">
+            <h1>Questions</h1>
+            <b>Geek Squad</b>
+            <p>Andrej Budincevic</p>
+            <p>Djordje Jankovic</p>
+            <b>Big BOSS</b>
+            <p>Katarina Kosmina</p>
+            <b>Mighty Designer</b>
+            <p>Marko Ilic</p>
+          </div>
 
+          <div class="col-sm-3 col-xs-6">
+            <h1>Support</h1>
+            <p>Techfugees</p>
+            <p>Our community</p>
+            
+          </div>
+
+          <div class="col-sm-3 col-xs-6">
+            <h1>Connect</h1>
+            <a href="https://www.facebook.com/techfugeespilot/?fref=ts">Facebook</a>
+            <a href="/email">Email</a>
+          </div>
+
+          <div class="col-sm-3 col-xs-6">
+            <h1>Communities 4 Refugees</h1>
+            <a href="">What is difference in</a>
+            <a href="">What is difference in</a>
+            <a href="">What is difference in</a>
+          </div>
+        </div>
+      </div>
+    </div>
 </template>
