@@ -27,6 +27,9 @@ Template.question.helpers({
 	},
 	pitanje_votes: function() {
 		return this.votes || 0;
+	},
+	pitanje_isUrgent: function() {
+		return this.urgency === 2;
 	}
 });
 
