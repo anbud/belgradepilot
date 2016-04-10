@@ -2,7 +2,7 @@
 	<div class="container">
       <div class="row">
         <div class="col-sm-4 logo">
-          <a href="/"><img src="assets/images/Inter-Ask.png" class="img-responsive"></a>
+          <a href="/"><img src="/assets/Inter-Ask.png" class="img-responsive"></a>
         </div>
 
         <div class="col-sm-8 right nav">
@@ -11,11 +11,14 @@
           <a href="/contact">CONTACT US</a>
         </div>
       </div>
-       
+    
+
+
      <div class="table">
+     	<div class="row">
+     		<div class="col-sm-8">
 	<h1>{{question}}</h1>
-	
-	{{urgency}}
+	</div>
 	<div class="col-sm-4">
               {{#if pitanje_isUrgent}}
               <div class="not-answered">Urgent</div>
@@ -23,11 +26,17 @@
               <div class="answered">Normal</div>
               {{/if}}
             </div>
+            </div>
 	{{location}}
 	</div>
 	<div class="table">
 	{{#each pitanje_komentari}}
-		<li>{{from.name}} - {{content}} ({{pitanje_votes}}) {{#if pitanje_canVote}}<a href="#" id="js-upvote">+</a><a href="#" id="js-downvote">-</a>{{/if}}</li><br />
+	 <div class="row">
+		<div class="col-sm-8">  {{from.name}} - {{content}} ({{pitanje_votes}})
+		</div>
+		 {{#if pitanje_canVote}}<a href="#" id="js-upvote" style="float:right"><img src="/assets/tumbs-up.jpg" style="displey:block;"/></a>   <a href="#" id="js-downvote" style="float:right"><img src="/assets/tumbs-down.jpg" style="displey:block;"/></a>{{/if}}
+
+		 </div>
 	{{/each}}
 	
 	</div>
@@ -39,7 +48,7 @@
 			<br>
 			Answer: <textarea id="js-odgovor"></textarea><br />
 			<br />
-			<div class="button"><input type="submit" value="Answer!" /></div>
+			<input type="submit" value="Answer" class="button" style="width:300px;height:50px"/>
 		</form>
 	</div>
 </div>
