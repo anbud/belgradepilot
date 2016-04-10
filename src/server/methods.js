@@ -1,4 +1,19 @@
 Meteor.methods({
+	sendEmail: function (to, from, subject, content) {
+		check([to, from, subject, content], [String]);
+
+		// Let other method calls from the same client start running,
+		// without waiting for the email sending to complete.
+		this.unblock();
+
+		//actual email sending method
+		Email.send({
+			to: to,
+			from: from,
+			subject: subject,
+			html: content
+		});
+	},
 	postaviPitanje: function(question, urgency, location) {
 		check(question, String);
 		check(urgency, String);

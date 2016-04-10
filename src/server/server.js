@@ -19,10 +19,13 @@ Meteor.publish('question', function(id) {
 });
 
 Meteor.publish('answers', function(id) {
-	var odg = new Mongo.Collection(null);
+	//Dirtiest hack around...
+	var odg = new Mongo.Collection('ans');
 	var ans = Questions.findOne({
 		_id: id
 	}).answers;
+
+	odg.remove({});
 
 	for(i = 0; i < ans.length; i++)
 		odg.insert(ans[i]);
