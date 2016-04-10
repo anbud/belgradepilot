@@ -49,3 +49,10 @@ Router.route('/about', {
         this.render('about');
     }
 });
+
+Router.route('/apidoc', {
+    name: 'apidoc',
+    action: function() {
+        this.render('apidoc')
+    }
+});

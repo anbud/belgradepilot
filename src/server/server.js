@@ -16,4 +16,18 @@ Meteor.publish('question', function(id) {
 	});
 }, {
 	url: 'api/question/:0'
+});
+
+Meteor.publish('answers', function(id) {
+	var odg = new Mongo.Collection(null);
+	var ans = Questions.findOne({
+		_id: id
+	}).answers;
+
+	for(i = 0; i < ans.length; i++)
+		odg.insert(ans[i]);
+
+	return odg.find();
+}, {
+	url: 'api/question/:0/answers'
 })
