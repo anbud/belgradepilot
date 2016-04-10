@@ -125,5 +125,9 @@ Tracker.autorun(function() {
 			location: Session.get('drzava')
 		}).fetch());
 	}*/
-})
+});
+
+Meteor.startup(function() {
+    GoogleMaps.load();
+  });
  
