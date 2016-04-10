@@ -26,6 +26,8 @@ Template.ask.events({
 		e.preventDefault();
 
 		postaviPitanje($("#js-question").val(), $("#js-urgency").val(), $("#js-location").val());
+
+		$("#js-poruka").html("Posting to Facebook...");
 	}
 });
 
