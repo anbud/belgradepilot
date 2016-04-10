@@ -29,17 +29,19 @@
             </div>
 	{{location}}
 	</div>
-	<div class="table">
+	
 	{{#each pitanje_komentari}}
+	<div class="table">
 	 <div class="row">
 		<div class="col-sm-8">  {{from.name}} - {{content}} ({{pitanje_votes}})
 		</div>
 		 {{#if pitanje_canVote}}<a href="#" id="js-upvote" style="float:right"><img src="/assets/tumbs-up.jpg" style="displey:block;"/></a>   <a href="#" id="js-downvote" style="float:right"><img src="/assets/tumbs-down.jpg" style="displey:block;"/></a>{{/if}}
 
 		 </div>
+		 </div>
 	{{/each}}
 	
-	</div>
+	
 	<div id="js-odgovoriDiv">
 		<h3>Answer</h3>
 		<form id="js-odgovori">
@@ -92,9 +94,7 @@
 
           <div class="col-sm-3 col-xs-6">
             <h1>Communities 4 Refugees</h1>
-            <a href="">What is difference in</a>
-            <a href="">What is difference in</a>
-            <a href="">What is difference in</a>
+            <div id="js-map" style="height: 200px !important;"></div>
           </div>
         </div>
       </div>
